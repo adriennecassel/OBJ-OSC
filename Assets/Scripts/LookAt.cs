@@ -10,7 +10,7 @@ public class LookAt : MonoBehaviour {
 	private void Update () {
 
 		Vector3 direction = target.position - transform.position;
-		Quaternion rotation = Quaternion.LookRotation(direction);
+		Quaternion rotation = Quaternion.LookRotation(direction, transform.up)*Quaternion.Euler(new Vector3 (-90, -90, -90));
 		Debug.Log(direction);
 		transform.rotation = rotation;
 		//slows rotation down: 
