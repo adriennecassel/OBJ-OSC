@@ -149,25 +149,50 @@ function updateSubscriptions() {
 
 function Update () {
 
-    var move_Lhip = GameObject.Find("KinectRig/Lhip");
-    var move_Lshoulder = GameObject.Find("KinectRig/torso/Lshoulder");
-    var move_Larm = GameObject.Find("KinectRig/torso/Lshoulder/Larm");
-    var move_Lforearm = GameObject.Find("KinectRig/torso/Lshoulder/Larm/Lforearm");
-    var move_Lleg = GameObject.Find("KinectRig/Lhip/Lthigh/Lleg");
+    // var move_Lhip = GameObject.Find("KinectRig/Lhip");
+    // var move_Lshoulder = GameObject.Find("KinectRig/torso/Lshoulder");
+    // var move_Larm = GameObject.Find("KinectRig/torso/Lshoulder/Larm");
+    // var move_Lforearm = GameObject.Find("KinectRig/torso/Lshoulder/Larm/Lforearm");
+    // var move_Lleg = GameObject.Find("KinectRig/Lhip/Lthigh/Lleg");
     
-    var move_Lhand = GameObject.Find("KinectRig/torso/Lshoulder/Larm/Lforearm/Lhand");
-    var move_Lfoot = GameObject.Find("KinectRig/Lhip/Lthigh/Lleg/Lfoot");
-    var move_Rshoulder = GameObject.Find("KinectRig/torso/Rshoulder");
-    var move_Rarm = GameObject.Find("KinectRig/torso/Rshoulder/Rarm");
-    var move_Rforearm = GameObject.Find("KinectRig/torso/Rshoulder/Rarm/Rforearm");
-    var move_Rleg = GameObject.Find("KinectRig/Rhip/Rthigh/Rleg");
-    var move_Rfoot = GameObject.Find("KinectRig/Rhip/Rthigh/Rleg/Rfoot");
+    // var move_Lhand = GameObject.Find("KinectRig/torso/Lshoulder/Larm/Lforearm/Lhand");
+    // var move_Lfoot = GameObject.Find("KinectRig/Lhip/Lthigh/Lleg/Lfoot");
+    // var move_Rshoulder = GameObject.Find("KinectRig/torso/Rshoulder");
+    // var move_Rarm = GameObject.Find("KinectRig/torso/Rshoulder/Rarm");
+    // var move_Rforearm = GameObject.Find("KinectRig/torso/Rshoulder/Rarm/Rforearm");
+    // var move_Rleg = GameObject.Find("KinectRig/Rhip/Rthigh/Rleg");
+    // var move_Rfoot = GameObject.Find("KinectRig/Rhip/Rthigh/Rleg/Rfoot");
    
-    var move_Rthigh = GameObject.Find("KinectRig/Rhip/Rthigh");
-    var move_Rhip = GameObject.Find("KinectRig/Rhip");
-    var move_head = GameObject.Find("KinectRig/torso/Neck/head"); 
-    var move_torso = GameObject.Find("KinectRig/torso"); 
-    var move_Rhand = GameObject.Find("KinectRig/torso/Rshoulder/Rarm/Rforearm/Rhand");
+    // var move_Rthigh = GameObject.Find("KinectRig/Rhip/Rthigh");
+    // var move_Rhip = GameObject.Find("KinectRig/Rhip");
+    // var move_head = GameObject.Find("KinectRig/torso/Neck/head"); 
+    // var move_torso = GameObject.Find("KinectRig/torso"); 
+    // var move_Rhand = GameObject.Find("KinectRig/torso/Rshoulder/Rarm/Rforearm/Rhand");
+
+    //////////
+
+    var move_Lhip = GameObject.Find("me-composite_fixed/Rig/Lhip");
+    var move_Lshoulder = GameObject.Find("me-composite_fixed/Rig/torso/Lshoulder");
+    var move_Larm = GameObject.Find("me-composite_fixed/Rig/torso/Lshoulder/Larm");
+    var move_Lforearm = GameObject.Find("me-composite_fixed/Rig/torso/Lshoulder/Larm/Lforearm");
+    var move_Lleg = GameObject.Find("me-composite_fixed/Rig/Lhip/Lthigh/Lleg");
+    
+    var move_Lhand = GameObject.Find("me-composite_fixed/Rig/torso/Lshoulder/Larm/Lforearm/Lhand");
+    var move_Lfoot = GameObject.Find("me-composite_fixed/Rig/Lhip/Lthigh/Lleg/Lfoot");
+    var move_Rshoulder = GameObject.Find("me-composite_fixed/Rig/torso/Rshoulder");
+    var move_Rarm = GameObject.Find("me-composite_fixed/Rig/torso/Rshoulder/Rarm");
+    var move_Rforearm = GameObject.Find("me-composite_fixed/Rig/torso/Rshoulder/Rarm/Rforearm");
+    var move_Rleg = GameObject.Find("me-composite_fixed/Rig/Rhip/Rthigh/Rleg");
+    var move_Rfoot = GameObject.Find("me-composite_fixed/Rig/Rhip/Rthigh/Rleg/Rfoot");
+   
+    var move_Rthigh = GameObject.Find("me-composite_fixed/Rig/Rhip/Rthigh");
+    var move_Rhip = GameObject.Find("me-composite_fixed/Rig/Rhip");
+    var move_head = GameObject.Find("me-composite_fixed/Rig/torso/Neck/head"); 
+    var move_torso = GameObject.Find("me-composite_fixed/Rig/torso"); 
+    var move_Rhand = GameObject.Find("me-composite_fixed/Rig/torso/Rshoulder/Rarm/Rforearm/Rhand");
+
+    var move_CameraFollow = GameObject.Find("CameraFollow");
+
 
     //var move_cube = GameObject.Find("NiceCube");
     //var move_root = GameObject.Find("Root");
@@ -176,6 +201,9 @@ function Update () {
     //Vector3.LerpFUNCTION currrent position and target position and time / delta time
 
     //move_Lhip.transform.position = Vector3(Lhip_x, Lhip_z,(Lhip_y));
+
+    move_CameraFollow.transform.position = Vector3(head_x, head_z, -head_y);
+    
     move_Lshoulder.transform.position = Vector3(Lshoulder_x, Lshoulder_z, -Lshoulder_y);
     move_Lleg.transform.position = Vector3(Lleg_x, Lleg_z, -Lleg_y);
     move_Larm.transform.position = Vector3(Larm_x, Larm_z, -Larm_y);
@@ -249,24 +277,47 @@ public function AllMessageHandler(oscMessage: OscMessage){
             Lshoulder_y = values[2];
             break;     
 
+	  	case "/Right_Shoulder":
+            Rshoulder_x = values[0];
+            Rshoulder_z = values[1];
+            Rshoulder_y = values[2];
+            break;  
+
         case "/Left_Elbow":
-            Lforearm_x = values[0];
-            Lforearm_z = values[1];
-            Lforearm_y = values[2];
+            Larm_x = values[0];
+            Larm_z = values[1];
+            Larm_y = values[2];
             break;   
 
+        case "/Right_Elbow":
+            Rarm_x = values[0];
+            Rarm_z = values[1];
+            Rarm_y = values[2];
+            break;   
+     	
+     	case "/Left_Wrist":
+        	Lforearm_x = values [0];
+        	Lforearm_y = values [2];
+        	Lforearm_z = values [1];
+        	break;
 
-        // case "/Left_Elbow":
-        //     Larm_x = values[0];
-        //     Larm_z = values[1];
-        //     Larm_y = values[2];
-        //     break;  
+  		case "/Right_Wrist":
+        	Rforearm_x = values [0];
+        	Rforearm_y = values [2];
+        	Rforearm_z = values [1];
+        	break;
 
         case "/Left_Hand":
             Lhand_x = values[0];
             Lhand_z = values[1];
             Lhand_y = values[2];
-            break;    
+            break;   
+
+        case "/Right_Hand":
+            Rhand_x = values[0];
+            Rhand_z = values[1];
+            Rhand_y = values[2];
+            break;  
 
         case "/Left_Hip":
             Lhip_x = values[0];
@@ -286,29 +337,18 @@ public function AllMessageHandler(oscMessage: OscMessage){
             Lfoot_y = values[2];
             break;    
 
-        case "/Right_Shoulder":
-            Rshoulder_x = values[0];
-            Rshoulder_z = values[1];
-            Rshoulder_y = values[2];
-            break;     
+         
+        // case "/Right_Middle_Distal Phalange":
+        //     Rhand_x = values[0];
+        //     Rhand_z = values[1];
+        //     Rhand_y = values[2];
+        //     break;    
 
-        case "/Right_Elbow":
-            Rarm_x = values[0];
-            Rarm_z = values[1];
-            Rarm_y = values[2];
-            break;   
-
-        case "/Right_Middle_Distal Phalange":
-            Rhand_x = values[0];
-            Rhand_z = values[1];
-            Rhand_y = values[2];
-            break;    
-
-        case "/Right_arm":
-            Rforearm_x = values[0];
-            Rforearm_z = values[1];
-            Rforearm_y = values[2];
-            break;    
+        // case "/Right_Elbow":
+        //     Rforearm_x = values[0];
+        //     Rforearm_z = values[1];
+        //     Rforearm_y = values[2];
+        //     break;    
 
         case "/Right_Hip":
             Rhip_x = values[0];
@@ -348,10 +388,10 @@ public function AllMessageHandler(oscMessage: OscMessage){
 }
 
 //helper function thanks k 
-public function FlipForward (coordinate) { 
-    var offset = 0;
-    return -(coordinate - offset) + offset;
-}
+// public function FlipForward (coordinate) { 
+//     var offset = 0;
+//     return -(coordinate - offset) + offset;
+// }
 
     //FUNCTIONS CALLED BY MATCHING A SPECIFIC MESSAGE IN THE ALLMESSAGEHANDLER FUNCTION
     public function Rotate(msgValue) : void //rotate the cube around its axis

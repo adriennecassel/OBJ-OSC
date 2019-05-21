@@ -10,11 +10,12 @@ public class LookAt : MonoBehaviour {
 	private void Update () {
 
 		Vector3 direction = target.position - transform.position;
-		Quaternion rotation = Quaternion.LookRotation(direction, transform.up)*Quaternion.Euler(new Vector3 (-90, -90, -90));
+		// Quaternion rotation = Quaternion.LookRotation(direction, transform.up)*Quaternion.Euler(new Vector3 (-90, -90, -90));
+		Quaternion rotation = Quaternion.LookRotation(direction);
 		Debug.Log(direction);
-		transform.rotation = rotation;
+		// transform.rotation = rotation;
 		//slows rotation down: 
-		//transform.rotation = Quaternion.Lerp(transform.rotation, rotation, speed * Time.deltaTime);
+		transform.rotation = Quaternion.Lerp(transform.rotation, rotation, speed * Time.deltaTime);
 	}		
 
 }
