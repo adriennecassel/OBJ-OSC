@@ -202,7 +202,7 @@ function Update () {
 
     //move_Lhip.transform.position = Vector3(Lhip_x, Lhip_z,(Lhip_y));
 
-    move_CameraFollow.transform.position = Vector3(head_x, head_z, -head_y);
+    move_CameraFollow.transform.position = Vector3(torso_x, torso_z, -torso_y);
     
     move_Lshoulder.transform.position = Vector3(Lshoulder_x, Lshoulder_z, -Lshoulder_y);
     move_Lleg.transform.position = Vector3(Lleg_x, Lleg_z, -Lleg_y);
