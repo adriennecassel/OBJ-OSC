@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 891c91756d6cc89459322296659bef10, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.55917794, g: 0.5880514, b: 0.7501527, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -242,13 +242,13 @@ MonoBehaviour:
   _maxParticles: 2030
   _emitterCenter: {x: 0, y: 0, z: 0}
   _emitterSize: {x: 0.43, y: 0.99, z: 0.32}
-  _throttle: 1
+  _throttle: 0
   _life: 5
-  _lifeRandomness: 0.712
+  _lifeRandomness: 0.934
   _initialVelocity: {x: 0, y: 0, z: 0}
   _directionSpread: 1
   _speedRandomness: 1
-  _acceleration: {x: -0.78, y: 0, z: 0}
+  _acceleration: {x: 0, y: -1.34, z: 0}
   _drag: 4
   _spin: 40.89
   _speedToSpin: 235.4
@@ -277,11 +277,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 245221999}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.526558, y: 1.9272655, z: 19.212086}
-  m_LocalScale: {x: 11.248873, y: 12.361398, z: 12.361398}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.9100001, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2029709504}
-  m_RootOrder: 2
+  m_Father: {fileID: 634546077}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &383608445
 GameObject:
@@ -734,7 +734,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.3596092, y: 0.8706899, z: -3.3862226}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 245222001}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -822,7 +823,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 22269ce8ccb5b10498a47a9e00dcd97b, type: 2}
+  - {fileID: 2100000, guid: 2679c2d328ef61347b982ffc28c3cbd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1220,15 +1221,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400026, guid: 377cd8a399c4b76479f5cc3b8eb8a2ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.77067
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400026, guid: 377cd8a399c4b76479f5cc3b8eb8a2ae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.15591
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400026, guid: 377cd8a399c4b76479f5cc3b8eb8a2ae, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.5542
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400026, guid: 377cd8a399c4b76479f5cc3b8eb8a2ae, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1269,19 +1270,14 @@ Prefab:
     - target: {fileID: 13700000, guid: 377cd8a399c4b76479f5cc3b8eb8a2ae, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2679c2d328ef61347b982ffc28c3cbd3, type: 2}
+      objectReference: {fileID: 2100000, guid: ca06f93560796e44488dfacf07f98022, type: 2}
     - target: {fileID: 400054, guid: 377cd8a399c4b76479f5cc3b8eb8a2ae, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 377cd8a399c4b76479f5cc3b8eb8a2ae, type: 3}
   m_IsPrefabAsset: 0
---- !u!4 &2029709504 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400026, guid: 377cd8a399c4b76479f5cc3b8eb8a2ae,
-    type: 3}
-  m_PrefabInternal: {fileID: 1846906840}
 --- !u!1 &2061045824
 GameObject:
   m_ObjectHideFlags: 0

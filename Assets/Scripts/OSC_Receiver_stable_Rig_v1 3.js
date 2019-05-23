@@ -24,6 +24,7 @@ public var head = "head";
 public var torso = "torso";
 
 private var handler : Osc;
+private var script;
 
 //public var MyCube = "cube";
 
@@ -102,7 +103,7 @@ public function Start ()
 {
     //Initializes on start up to listen for messages
     //make sure this game object has both UDPPackIO and OSC script attached
-
+//gameobject spray = GsmeObject.Find
     var udp : UDPPacketIO = GetComponent("UDPPacketIO");
     udp.init(RemoteIP, SendToPort, ListenerPort);
 
@@ -196,11 +197,12 @@ function Update () {
     var move_CameraFollow = GameObject.Find("CameraFollow");
 
     var spray = GameObject.Find("Spray");
-    var script = spray.GetComponent.<Kvant.Spray>();
+    script = spray.GetComponent.<Kvant.Spray>();
     var move_throttle = script.throttle;
     // Debug.Log(move_throttle);
+    //script.throttle = 0;
 
-    spray.script.throttle = Vector2(throttle_x, throttle_x);
+    //spray.script.throttle = Vector2(throttle_x, throttle_x);
     //var move_cube = GameObject.Find("NiceCube");
     //var move_root = GameObject.Find("Root");
 
@@ -233,7 +235,7 @@ function Update () {
     move_torso.transform.position = Vector3(torso_x, torso_z, -torso_y);
     move_head.transform.position = Vector3(head_x, head_z, -head_y);  
 
-    move_throttle.throttle = (throttle_x);
+    //move_throttle.throttle = (throttle_x);
     //var vf = GameObject.Find("vf");
     //vf.transform.Rotate(0, 10*Time.deltaTime,0);
 
@@ -272,7 +274,7 @@ public function AllMessageHandler(oscMessage: OscMessage){
     var msgString = Osc.OscMessageToString(oscMessage); //the message and value combined
     var msgAddress = oscMessage.Address; //the message parameters
     var values = oscMessage.Values;
-    //Debug.Log(msgString); //log the message and values coming from OSC
+    Debug.Log(msgString); //log the message and values coming from OSC
     var v = 0;
     //var spray = GameObject.Find("Spray");
 
@@ -390,12 +392,12 @@ public function AllMessageHandler(oscMessage: OscMessage){
             torso_y = values[2];
             break;
        
-        case "/1/volume1":
-			throttle_x = values[0];
-			//Debug.Log(throttle);
+        case "/1/volume":
+            script.throttle = values[0];	
 	       	break;
 
         default:
+
             break;
     }
     
