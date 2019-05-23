@@ -96,6 +96,8 @@ private var torso_x : float = 0;
 private var torso_y : float = 0;
 private var torso_z : float = 0;
 
+private var throttle_x : float = 0;
+
 public function Start ()
 {
     //Initializes on start up to listen for messages
@@ -195,14 +197,14 @@ function Update () {
 
     var spray = GameObject.Find("Spray");
     var script = spray.GetComponent.<Kvant.Spray>();
-    var print = script.throttle;
-    Debug.Log(print);
+    var move_throttle = script.throttle;
+    // Debug.Log(move_throttle);
 
-
+    spray.script.throttle = Vector2(throttle_x, throttle_x);
     //var move_cube = GameObject.Find("NiceCube");
     //var move_root = GameObject.Find("Root");
 
-
+   //move_throttle = Vector3(throttle_x, torso_y, torso_z);
     //Vector3.LerpFUNCTION currrent position and target position and time / delta time
 
     //move_Lhip.transform.position = Vector3(Lhip_x, Lhip_z,(Lhip_y));
@@ -231,7 +233,7 @@ function Update () {
     move_torso.transform.position = Vector3(torso_x, torso_z, -torso_y);
     move_head.transform.position = Vector3(head_x, head_z, -head_y);  
 
-
+    move_throttle.throttle = (throttle_x);
     //var vf = GameObject.Find("vf");
     //vf.transform.Rotate(0, 10*Time.deltaTime,0);
 
@@ -270,9 +272,9 @@ public function AllMessageHandler(oscMessage: OscMessage){
     var msgString = Osc.OscMessageToString(oscMessage); //the message and value combined
     var msgAddress = oscMessage.Address; //the message parameters
     var values = oscMessage.Values;
-    Debug.Log(msgAddress); //log the message and values coming from OSC
+    //Debug.Log(msgString); //log the message and values coming from OSC
     var v = 0;
-    var spray = GameObject.Find("Spray");
+    //var spray = GameObject.Find("Spray");
 
   
     //FUNCTIONS YOU WANT CALLED WHEN A SPECIFIC MESSAGE IS RECEIVED
@@ -388,12 +390,12 @@ public function AllMessageHandler(oscMessage: OscMessage){
             torso_y = values[2];
             break;
        
-        case "/1/record":
-	        //Debug.Log(spray);
-        	break;
+        case "/1/volume1":
+			throttle_x = values[0];
+			//Debug.Log(throttle);
+	       	break;
 
         default:
-            //
             break;
     }
     
@@ -411,3 +413,7 @@ public function AllMessageHandler(oscMessage: OscMessage){
         yRot = msgValue;
     }
 
+ //    public function Throttle(msgValue) : void
+ //    {	throttle = values[];
+    
+	// }

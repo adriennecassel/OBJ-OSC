@@ -1,4 +1,4 @@
 sceneSetups:
-- path: C:/Users/golan/Downloads/MidiJack-master/Assets/Example CC/Example CC.unity
+- path: Assets/Scenes/Stretchrig.unity
   isLoaded: 1
   isActive: 1
