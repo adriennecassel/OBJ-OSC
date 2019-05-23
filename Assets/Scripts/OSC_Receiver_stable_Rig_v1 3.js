@@ -193,6 +193,11 @@ function Update () {
 
     var move_CameraFollow = GameObject.Find("CameraFollow");
 
+    var spray = GameObject.Find("Spray");
+    var script = spray.GetComponent.<Kvant.Spray>();
+    var print = script.throttle;
+    Debug.Log(print);
+
 
     //var move_cube = GameObject.Find("NiceCube");
     //var move_root = GameObject.Find("Root");
@@ -225,6 +230,7 @@ function Update () {
 
     move_torso.transform.position = Vector3(torso_x, torso_z, -torso_y);
     move_head.transform.position = Vector3(head_x, head_z, -head_y);  
+
 
     //var vf = GameObject.Find("vf");
     //vf.transform.Rotate(0, 10*Time.deltaTime,0);
@@ -264,8 +270,10 @@ public function AllMessageHandler(oscMessage: OscMessage){
     var msgString = Osc.OscMessageToString(oscMessage); //the message and value combined
     var msgAddress = oscMessage.Address; //the message parameters
     var values = oscMessage.Values;
-    Debug.Log(msgString); //log the message and values coming from OSC
+    Debug.Log(msgAddress); //log the message and values coming from OSC
     var v = 0;
+    var spray = GameObject.Find("Spray");
+
   
     //FUNCTIONS YOU WANT CALLED WHEN A SPECIFIC MESSAGE IS RECEIVED
     switch (msgAddress){
@@ -379,6 +387,10 @@ public function AllMessageHandler(oscMessage: OscMessage){
             torso_z = values[1];
             torso_y = values[2];
             break;
+       
+        case "/1/record":
+	        //Debug.Log(spray);
+        	break;
 
         default:
             //
@@ -399,11 +411,3 @@ public function AllMessageHandler(oscMessage: OscMessage){
         yRot = msgValue;
     }
 
-//take out forwardflip and 0.5
-//switch the gui references for the mirrordistancetime script on the chair 
-//normal maps
-//set animation when the person comes in
-
-//add version control
-//wrong for new version: placement is bad, movements are too laggy, movments smaller??
-    //->recalibrate w someone
