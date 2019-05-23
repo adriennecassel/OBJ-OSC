@@ -264,7 +264,7 @@ public function AllMessageHandler(oscMessage: OscMessage){
     var msgString = Osc.OscMessageToString(oscMessage); //the message and value combined
     var msgAddress = oscMessage.Address; //the message parameters
     var values = oscMessage.Values;
-    //Debug.Log(msgString); //log the message and values coming from OSC
+    Debug.Log(msgString); //log the message and values coming from OSC
     var v = 0;
   
     //FUNCTIONS YOU WANT CALLED WHEN A SPECIFIC MESSAGE IS RECEIVED
