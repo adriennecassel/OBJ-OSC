@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Stretchrig.unity
+- path: C:/Users/studioadmin/Documents/Adrienne/GitHub/OBJ2/OBJ-OSC/Assets/Scenes/Stretchrig.unity
   isLoaded: 1
   isActive: 1

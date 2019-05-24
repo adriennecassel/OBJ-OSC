@@ -215,7 +215,9 @@ function Update () {
 
     var avatar = GameObject.Find("me-composite_fixed/bodymesh");
     body = avatar.GetComponent.<Renderer> ();//.material.color.a;
-    avatarbody = body.material.color = new Color (1, 1, 1, alpha);//.a;
+    avatarbody = body.material.color; //= new Color (1, 1, 1, alpha);//.a;
+    colorValue = new Color (1, 1, 1, alpha);
+    body.material.color = colorValue;
 
     var cameraglitch = GameObject.Find("Main Camera");
     glitch = cameraglitch.GetComponent.<Kino.AnalogGlitch> ();
@@ -428,7 +430,7 @@ public function AllMessageHandler(oscMessage: OscMessage){
             //avatar.GetComponent.<Renderer>().material.color.a;
             //avatarbody = new Color (1, 1, 1, values[0]);
             //alpha = values[0];
-            Debug.Log(avatarbody);
+            //Debug.Log(avatarbody);
             //body.material.color.a = values[0];
 	       	break;
 
@@ -444,7 +446,18 @@ public function AllMessageHandler(oscMessage: OscMessage){
 	    // 	script.motion = values[2]+5;
 	    // 	break;
 
-        default:
+	    case "/1/volume1":
+	    	alpha = values[0];
+	    	avataropacity(alpha);
+	    	break;
+
+	    case "/1/volume2":
+	    	script.throttle = values [0];
+	    	break;
+
+	    case "/1/volume3":
+	    	glitch.scanLineJitter = values[0];
+            default:
 
             break;
     }
@@ -467,3 +480,7 @@ public function AllMessageHandler(oscMessage: OscMessage){
  //    {	throttle = values[];
     
 	// }
+	public function avataropacity(colorValue) : void
+	{
+		avatarbody = new Color (1, 1, 1, alpha);
+	}
