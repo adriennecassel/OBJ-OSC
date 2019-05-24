@@ -25,6 +25,10 @@ public var torso = "torso";
 
 private var handler : Osc;
 private var script;
+private var body;
+private var avatar;
+private var avatarbody;
+private var alpha;
 
 //public var MyCube = "cube";
 
@@ -97,7 +101,7 @@ private var torso_x : float = 0;
 private var torso_y : float = 0;
 private var torso_z : float = 0;
 
-private var throttle_x : float = 0;
+//private var throttle_x : float = 0;
 
 public function Start ()
 {
@@ -199,6 +203,16 @@ function Update () {
     var spray = GameObject.Find("Spray");
     script = spray.GetComponent.<Kvant.Spray>();
     var move_throttle = script.throttle;
+    var move_amplitude = script.amplitude;
+    var move_drag = script.drag;
+    //Debug.Log(move_drag);
+    var move_motion = script.motion;
+
+    var avatar = GameObject.Find("me-composite_fixed/bodymesh");
+    body = avatar.GetComponent.<Renderer> ();//.material.color.a;
+    avatarbody = body.material.color = new Color (0, 0, 0, alpha);//.a;
+    //Debug.Log(avatarbody);
+
     // Debug.Log(move_throttle);
     //script.throttle = 0;
 
@@ -274,7 +288,8 @@ public function AllMessageHandler(oscMessage: OscMessage){
     var msgString = Osc.OscMessageToString(oscMessage); //the message and value combined
     var msgAddress = oscMessage.Address; //the message parameters
     var values = oscMessage.Values;
-    Debug.Log(msgString); //log the message and values coming from OSC
+   	Debug.Log(msgString); //log the message and values coming from OSC
+    //Debug.Log(msgAddress);
     var v = 0;
     //var spray = GameObject.Find("Spray");
 
@@ -393,8 +408,25 @@ public function AllMessageHandler(oscMessage: OscMessage){
             break;
        
         case "/1/volume":
-            script.throttle = values[0];	
+            // script.throttle = values[0];
+            // script.drag = values[0];
+            //script.amplitude = values;	
+            //script.drag = values;
+            //avatar.GetComponent.<Renderer>().material.color.a;
+            //avatarbody = new Color (1, 1, 1, values[0]);
+            alpha = values[0];
+            Debug.Log(avatarbody);
+            //body.material.color.a = values[0];
 	       	break;
+
+	    case "/2/fxpar1":
+	    	//script.amplitude = values[0]+5;
+
+	    	break;
+
+	    // case "/2/fxpar2":
+	    // 	script.motion = values[2]+5;
+	    // 	break;
 
         default:
 

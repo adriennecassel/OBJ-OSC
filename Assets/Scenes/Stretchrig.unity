@@ -1275,6 +1275,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 100054, guid: 377cd8a399c4b76479f5cc3b8eb8a2ae, type: 3}
+      propertyPath: m_Name
+      value: bodymesh
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 377cd8a399c4b76479f5cc3b8eb8a2ae, type: 3}
   m_IsPrefabAsset: 0
