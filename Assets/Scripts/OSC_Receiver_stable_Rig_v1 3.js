@@ -26,9 +26,14 @@ public var torso = "torso";
 private var handler : Osc;
 private var script;
 private var body;
+private var myhead;
 private var avatar;
+private var avatarhead;
 private var avatarbody;
 private var alpha;
+private var alpha1;
+private var glitch;
+
 
 //public var MyCube = "cube";
 
@@ -210,8 +215,15 @@ function Update () {
 
     var avatar = GameObject.Find("me-composite_fixed/bodymesh");
     body = avatar.GetComponent.<Renderer> ();//.material.color.a;
-    avatarbody = body.material.color = new Color (0, 0, 0, alpha);//.a;
-    //Debug.Log(avatarbody);
+    avatarbody = body.material.color = new Color (1, 1, 1, alpha);//.a;
+
+    var cameraglitch = GameObject.Find("Main Camera");
+    glitch = cameraglitch.GetComponent.<Kino.AnalogGlitch> ();
+
+    // var avatarhead = GameObject.Find("me-composite_fixed/headmesh");
+    // myhead = avatarhead.GetComponent.<Renderer> ();//.material.color.a;
+    // avatarhead = myhead.material.color = new Color (1, 1, 1, alpha);//.a;
+    // Debug.Log(avatarhead);
 
     // Debug.Log(move_throttle);
     //script.throttle = 0;
@@ -408,20 +420,24 @@ public function AllMessageHandler(oscMessage: OscMessage){
             break;
        
         case "/1/volume":
-            // script.throttle = values[0];
+           	alpha = values[0];
+           	//alpha1 = values[0];
             // script.drag = values[0];
             //script.amplitude = values;	
             //script.drag = values;
             //avatar.GetComponent.<Renderer>().material.color.a;
             //avatarbody = new Color (1, 1, 1, values[0]);
-            alpha = values[0];
+            //alpha = values[0];
             Debug.Log(avatarbody);
             //body.material.color.a = values[0];
 	       	break;
 
-	    case "/2/fxpar1":
-	    	//script.amplitude = values[0]+5;
+	    case "/1/pan":
+            script.throttle = values[0];
+	    	break;
 
+	    case "/2/fxpar1":
+            glitch.scanLineJitter = values[0];
 	    	break;
 
 	    // case "/2/fxpar2":
